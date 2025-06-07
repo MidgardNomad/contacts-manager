@@ -1,8 +1,10 @@
+//Third-Party imports
 const express = require("express");
 const app = express();
-const { model } = require("../models/user.model");
-const md5 = require("md5");
 
-app.post("/login/", async () => {});
+//Controller
+const authContoller = require("./auth.controller");
+
+app.post("/login/", authContoller.login);
 
 module.exports = app;
