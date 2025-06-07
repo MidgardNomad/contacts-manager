@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   OnDestroy,
@@ -13,11 +14,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
 })
-export class AuthComponent implements OnInit, OnDestroy {
+export class AuthComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private fb: FormBuilder) {}
   //Life-Cycle Hooks
   ngOnInit(): void {
     this.initForm();
+  }
+  ngAfterViewInit(): void {
+    this.passwordInputField.nativeElement.focus();
   }
   ngOnDestroy(): void {}
 
@@ -43,6 +47,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         : 'password';
   }
   signin() {
+    this.signInForm.get('password').setErrors({ invalid: true });
     console.log(this.signInForm.value);
   }
 }
