@@ -7,6 +7,9 @@ const bodyParser = require("body-parser");
 //My utls
 const connectMongoDB = require("./mongo-connect");
 
+//Routes
+const routes = require("./routes");
+
 process.on("uncaughtException", (err) => {
   console.error("Uncaught Exception:", err);
 });
@@ -26,8 +29,8 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //ROUTES
-const authRoutes = require("./auth/auth.routes");
-app.use("/api/", authRoutes);
+// const authRoutes = require("./auth/auth.routes");
+app.use("/api/", routes);
 
 //init server
 const PORT = 3000;
