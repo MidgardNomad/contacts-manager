@@ -1,0 +1,45 @@
+@use "index" as style;
+
+.login-screen {
+  height: 100vh;
+  &-card {
+    background-color: white;
+    padding: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 12px;
+    max-height: fit-content;
+    width: 40%;
+    h2 {
+      margin-block: 15px;
+      font-weight: 600;
+      // font-size: 1.25em;
+    }
+    form {
+      .form-group {
+        button.toggle-password {
+          border: none;
+          background-color: transparent;
+          position: absolute;
+          top: 32.5%;
+          right: 25px;
+          i {
+            font-size: 1.2em;
+            color: style.$dim-color;
+          }
+        }
+      }
+      button.main-button {
+        width: 50%;
+      }
+    }
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+    @media (max-width: 768px) {
+      width: 60%;
+    }
+    @media (max-width: 576px) {
+      width: 90%;
+    }
+  }
+}

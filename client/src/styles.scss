@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use "index" as style;
+
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 0px;
+}
+
+body {
+  background-color: style.$body-bg-color;
+  color: style.$main-font-color;
+}
+
+.form-group {
+  margin: 15px 25px;
+  position: relative;
+  label {
+    color: style.$main-font-color;
+    font-size: 0.8em;
+  }
+  .form-control {
+    border-radius: 12px;
+    &::placeholder {
+      font-size: 0.9em;
+    }
+    &:focus {
+      box-shadow: none;
+      border: 1px solid #a4ccd9;
+      box-shadow: rgba(164, 204, 217, 0.2) 0px 8px 24px;
+    }
+  }
+  .hint {
+    margin-top: -10px;
+    color: style.$dim-color;
+    font-size: 0.7em;
+    font-weight: 400;
+  }
+}

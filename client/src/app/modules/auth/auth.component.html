@@ -1,1 +1,65 @@
-<p>auth works!</p>
+<section
+  class="container-fluid d-flex align-items-center justify-content-center login-screen"
+>
+  <div class="login-screen-card">
+    <h2 class="text-center">Sing In</h2>
+    <form [formGroup]="signInForm" (ngSubmit)="signin()">
+      <div class="form-group">
+        <label for="user-name"> Username </label>
+        <input
+          id="user-name"
+          type="text"
+          class="form-control"
+          placeholder="Enter your username...."
+          formControlName="username"
+          [ngClass]="{
+            'is-valid': signInForm.get('username').valid,
+            'is-invalid':
+              signInForm.get('username').invalid &&
+              signInForm.get('username').touched &&
+              signInForm.get('username').dirty
+          }"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password"> Password </label>
+        <input
+          #passwordInputField
+          id="password"
+          type="password"
+          class="form-control"
+          placeholder="Enter your password...."
+          formControlName="password"
+          [ngClass]="{
+            'is-valid': signInForm.get('password').valid,
+            'is-invalid':
+              signInForm.get('password').invalid &&
+              signInForm.get('password').touched &&
+              signInForm.get('password').dirty
+          }"
+        />
+        <span class="hint"> *Password must be 8 characters or more. </span>
+        <button
+          (click)="togglePassword()"
+          type="button"
+          class="toggle-password"
+        >
+          @if (passwordInputField.type === 'text') {
+          <i class="bi bi-eye-fill"></i>
+          } @else {
+          <i class="bi bi-eye-slash-fill"></i>
+          }
+        </button>
+      </div>
+      <div class="container-fluid d-flex justify-content-center">
+        <button
+          [disabled]="signInForm.invalid"
+          type="submit"
+          class="container button main-button"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

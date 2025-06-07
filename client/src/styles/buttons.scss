@@ -1,0 +1,17 @@
+.button {
+  border-radius: 12px;
+  padding: 10px 15px;
+  border: none;
+  &:focus {
+    border: none !important;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.main-button {
+  background-color: #009ec2;
+  color: white;
+}
