@@ -10,17 +10,20 @@ export class CrudService {
   constructor(private http: HttpClient) {}
 
   get<T>(endpoint: string) {
-    return this.http.get<T>(`${environment}/${endpoint}`);
+    return this.http.get<T>(`${environment.api}/${endpoint}`);
   }
 
   post<T, D>(endpoint: string, data: D) {
     return this.http.post<ServerResponse<T>>(
-      `${environment}/${endpoint}`,
+      `${environment.api}/${endpoint}`,
       data
     );
   }
 
   put<T, D>(endpoint: string, data: D) {
-    return this.http.put<ServerResponse<T>>(`${environment}/${endpoint}`, data);
+    return this.http.put<ServerResponse<T>>(
+      `${environment.api}/${endpoint}`,
+      data
+    );
   }
 }
