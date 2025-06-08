@@ -23,6 +23,11 @@ body {
   }
   .form-control {
     border-radius: 12px;
+    background-color: #ebffd8;
+    &:disabled {
+      background-color: #eeefe0;
+      cursor: not-allowed;
+    }
     &::placeholder {
       font-size: 0.9em;
     }
