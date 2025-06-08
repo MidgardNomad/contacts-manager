@@ -26,6 +26,9 @@
             font-size: 1.2em;
             color: style.$dim-color;
           }
+          &:disabled {
+            cursor: not-allowed;
+          }
         }
       }
       button.main-button {
